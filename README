@@ -29,8 +29,15 @@
 
       pip install https://github.com/joh/when-changed/archive/master.zip
 
+      # PegasusWang add color output when file changed, just see source code (Bcolor class)
+      pip install https://github.com/PegasusWang/when-changed/archive/master.zip
+
 
     ~ Usage
 
       when-changed FILE COMMAND...
       when-changed FILE [FILE ...] -c COMMAND
+
+    ~ Demo
+      when-changed -r -v -1 . python main.py
+      when-changed -r -v -1 . go run main.go

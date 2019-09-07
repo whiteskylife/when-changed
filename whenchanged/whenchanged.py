@@ -31,6 +31,17 @@ except ImportError:
     import subprocess
 
 
+class Bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+
 class WhenChanged(FileSystemEventHandler):
     # Exclude Vim swap files, its file creation test file 4913 and backup files
     exclude = re.compile(r'^\..*\.sw[px]*$|^4913$|.~$')
@@ -59,8 +70,8 @@ class WhenChanged(FileSystemEventHandler):
                 p = os.path.dirname(p)
                 self.observer.schedule(self, p)
 
-
     def run_command(self, thefile):
+        print(Bcolors.WARNING + "===========%s file changed=========" + thefile + Bcolors.ENDC)
         if self.run_once:
             if os.path.exists(thefile) and os.path.getmtime(thefile) < self.last_run:
                 return
