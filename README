@@ -41,3 +41,9 @@
     ~ Demo
       when-changed -r -v -1 . python main.py
       when-changed -r -v -1 . go run main.go
+      # you can add alias
+      alias whenchanged_run="when-changed -r -v -1 . "
+      whenchanged_run python main.py
+
+    ~ Video
+      https://zhuanlan.zhihu.com/p/68631157
